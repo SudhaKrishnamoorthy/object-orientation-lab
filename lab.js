@@ -251,6 +251,7 @@ class Wizard {
   const wizard1 = new Wizard("harry", 10, "expelliarmus")
 
 wizard1.castSpell()
+console.log(wizard1)
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -277,21 +278,29 @@ wizard1.castSpell()
 
 class Phone {
   constructor(brand, model, storage, color, price, sold) {
-    this.brand = brand;
-    this.model = model;
-    this.storage = storage,
-    this.color = color;
-    this.price = price;
-    this.sold = false;
+      this.brand = brand;
+      this.model = model;
+      this.storage = storage,
+          this.color = color;
+      this.price = price;
+      this.sold = false;
   }
-  sell(){
-       console.log(this.brand + " " + this.model + " " + 'has been sold')
+  sell() {
+      this.sold = true
+      console.log(this)
+      console.log(this.brand + " " + this.model + " " + 'has been sold')
 
+  }
+  changePrice(myPrice) {
+          
+      this.price = myPrice;
+      //else (console.log("this phone has been sold"))
   }
 }
-const phone1 = new Phone("Samsung", "X8", 258, 500)
-phone1.sell()
-
+const phone1 = new Phone("Samsung", "X8", 258, "blue", 500)
+//phone1.sell()
+phone1.changePrice(400)
+console.log(phone1)
   
 /*
     Next make three new phone instances using your class.
@@ -303,7 +312,9 @@ phone1.sell()
     - price: number
 */
 
-//Code Here
+const phone2 = new Phone("moto", "Gplus", 258, "Silver", 250)
+const phone3 = new Phone("iphone", "12", 516, "pink", 700)
+const phone4 = new Phone("tmobile", "plus", 356, "black", 250)
 
 /* 
   Call the changePrice function on one of your phones, 
@@ -312,7 +323,8 @@ phone1.sell()
   Then console.log that object to see the price change
 */ 
 
-//Code Here 
+phone2.changePrice(150)
+console.log(phone2)
 
 
 /*
@@ -321,7 +333,8 @@ phone1.sell()
   Print the value of that phone's sell property to make sure it's been changed to true
 */
 
-//Code Here 
+phone3.sell()
+console.log(phone3)
 
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
@@ -340,7 +353,8 @@ const colors = {
 }
 //do not edit this object
 
-//Code Here 
+const colorsCopy = {...colors}
+console.log(colorsCopy)
 
 
 
@@ -368,7 +382,10 @@ const shippingInfo = {
 }
 //do not edit the objects above
 
-//Code Here
+const helensInfo = {
+  ...contactInfo, ...shippingInfo
+}
+console.log(helensInfo)
 
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
@@ -386,14 +403,28 @@ const shippingInfo = {
   And finally, print the value of the mileage.
 */
 
-//Code Here 
+class Vehicle {
+  constructor(capacity, color, mileage){
+    this.capacity = capacity;
+    this.color = color;
+    this.mileage = mileage;
+  }
+move(miles) {
+  this.mileage = miles + this.mileage
+}
+}
 
-
+const vehicle1 = new Vehicle(4, "blue", 50000)
+console.log(vehicle1)
+vehicle1.move(10000)
+console.log(vehicle1)
+console.log(vehicle1.mileage)
 /*
   Create a vehicle using your new class and save it to a variable called myFirstVehicle
 */
 
-//Code Here
+const myFirstVehicle = {...vehicle1}
+console.log(myFirstVehicle)
 
 
 /* 
@@ -404,18 +435,27 @@ const shippingInfo = {
   new ones: make and isCool. (Hint: don't forget to call the super function)
 */
 
-//Code Here
+class Motorcycle extends Vehicle {
+  constructor(capacity, color, mileage, make, isCool) {
+    super(capacity, color, mileage)
+    this.make = make;
+    this. isCool = isCool
+  }
+}
 
 /*
   Create a Motorcycle using your new class and save it to a variable called myFirstMotorcycle
 */
 
-//Code Here 
+const myFirstMotorcycle = new Motorcycle(2, "black", 5000, "HarleyDavidson", true)
+
 
 /*
   Call the move function on myFirstMotorcycle (don't forget the parameter)
 */
+myFirstMotorcycle.move(1500)
 
+console.log(myFirstMotorcycle)
 /*
   Let's make another class based off of Vehicle. 
 
