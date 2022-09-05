@@ -4,7 +4,12 @@
   Give it a key of name with the value being your name, and another key of age with the value being your age.
 */
 
-//Code here
+const me = {
+  name: 'Sudha',
+  age: 51,
+  };
+  console.log(me.name)
+  console.log(me.age)
 
 
 
@@ -15,21 +20,27 @@
 //name (a string), color (a string), age (a number),
 //and goodBoy/goodGirl (a boolean).
 
-//Code here
+const dog = {
+  name: 'Ramu',
+  color: 'Black/Brown',
+  age: 5,
+  goodBoy: true,
+};
+console.log(dog. goodBoy)
 
 
 
 //////////////////////////// PROBLEM 3 ////////////////////////////
 /* Print out the name of the dog you created in problem 2 using dot-notation. */
 
-//Code here
+console.log(dog.name)
 
 
 
 //////////////////////////// PROBLEM 4 ////////////////////////////
 /* Print out the color of the dog you created in problem 2 using bracket-notation. */
 
-//Code here
+console.log(dog.color)
 
 
 
@@ -39,22 +50,36 @@
   Have the values to those keys be strings that are equal to your favorite thing in that category.
 */
 
-//Code here
+const favoriteThings = {
+  band: 'parikrama',
+  food: 'indian food',
+  person: 'amma',
+  book: 'the runaway jury',
+  movie: 'sound of music',
+  holiday: 'ladakh'
+};
+
+
 
 
 /*
   After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car and then another key named 'show' with the value being your favorite show.
 */
 
-//Code here
-
+favoriteThings.car = 'lexus',
+favoriteThings['show'] = 'british baking show'
+console.log(favoriteThings.car)
+console.log(favoriteThings.show)
 
 /*
   Now use bracket or dot notation to change the value of the food key in your favoriteThings object to be 'Chicken Nuggets'
   and change the value of the book key in your favoriteThings object to be 'Harry Potter'. (If they were either of those things already, change them to something else.)
 */
 
-//Code here
+favoriteThings.food = 'Chiken Nuggets'
+favoriteThings.book = 'Harry Potter'
+console.log(favoriteThings.food)
+console.log(favoriteThings.book)
 
 
 //////////////////////////// PROBLEM 6 ////////////////////////////
@@ -71,11 +96,17 @@ var carDetails = {
 /*
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
-
-//Code Here
-
-
-
+console.log(carDetails.color)
+/*const newCarDetails = {
+  color: 'black',
+  make: 'kia',
+  model: 'sorento',
+  year: 2019
+}
+const {color, make, model, year} = carDetails;
+console.log(newCarDetails.color)*/
+const { color: favoriteCarColor, make: favoriteCarMake } = carDetails
+console.log(favoriteCarColor, favoriteCarMake)
 //////////////////////////// PROBLEM 7 ////////////////////////////
 
 /*
@@ -85,12 +116,16 @@ var carDetails = {
 */
 
 function greeting( obj ) {
-  //Code Here
+ 
+ 
+  }
+
+  
   
   // Do not edit the code below.
-  return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
+  //return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
-}
+
 
 
 
@@ -103,9 +138,20 @@ function greeting( obj ) {
   Use object destructuring to save the property values to new variables.
   Sum up the values and return the total number.
 */
+function totalPopulation(obj) {
+  sum = utahPop + californiaPop + texasPop + arizonaPop
+   return sum
+}
+const populationObj = {
+  utah: 100,
+  california: 200,
+  texas: 300,
+  arizona: 400,
+}
+const { utah: utahPop, california: californiaPop, texas: texasPop, arizona: arizonaPop } = populationObj
+//let {utah, california, texas, arizona} = populationObj
 
-//Code Here
-
+console.log(totalPopulation(populationObj))
 
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
@@ -118,9 +164,20 @@ function greeting( obj ) {
   Push these new variables to an array and return the array. 
 */
 
-//Code Here
+function ingredients(obj) {
+  const arr = [newCarb, newFat, newProtein];
+  
+  return arr
+}
 
+const food = {
+  carb: 'high',
+  fat: 'low',
+  protein: 'medium',
+}
+const{ carb: newCarb, fat: newFat, protein: newProtein} = food
 
+console.log(ingredients(food))
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
 // Do not edit the code below.
@@ -140,15 +197,18 @@ var user = {
   Make that change without modifying the original object code above.
 */
 
-//Code Here
-
+user.name = 'Bryan G. Smith'
+user. email = 'bryan.smith@devmounta.in'
+console.log(user.name)
+console.log(user.email)
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
 /*
   Using the user object above, delete the users age off of the object.
 */
 
-//Code Here
+delete user.age
+console.log(user)
 
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
@@ -158,10 +218,18 @@ var user = {
   Print the name of your cat instance using dot notation.
 */
 
-//Code here
-
-
-
+class Cat {
+  constructor(name, age, color) {
+    this.name = name;
+    this.age = age;
+    this.color = color;
+    
+  }
+  
+  }
+ 
+const cat1 = new Cat("Chinni", 5, "black");
+console.log(cat1)
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
   Create a class called 'Wizard'. Make sure to call your constructor, and require these 3 parameters: name, age, favoriteSpell.
@@ -169,8 +237,20 @@ var user = {
   Outside of your class, create an instance of your Wizard, passing in whatever values you would like.
   Call the castSpell function on the instance of your wizard.
 */
+class Wizard {
+  constructor(name, age, favoriteSpell) {
+    this.name = name;
+    this.age = age;
+    this.favoriteSpell = favoriteSpell;
+  }
+ castSpell() {
+    console.log(this.name + " " + 'has cast' + " " +this.favoriteSpell)
+      }
+    }  
+  
+  const wizard1 = new Wizard("harry", 10, "expelliarmus")
 
-//Code here
+wizard1.castSpell()
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -195,7 +275,22 @@ var user = {
     to be newPrice.
 */
 
-//Code Here
+class Phone {
+  constructor(brand, model, storage, color, price, sold) {
+    this.brand = brand;
+    this.model = model;
+    this.storage = storage,
+    this.color = color;
+    this.price = price;
+    this.sold = false;
+  }
+  sell(){
+       console.log(this.brand + " " + this.model + " " + 'has been sold')
+
+  }
+}
+const phone1 = new Phone("Samsung", "X8", 258, 500)
+phone1.sell()
 
   
 /*
